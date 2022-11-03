@@ -1,4 +1,5 @@
 import Sidebar from '../components/Sidebar'
+import Feed from '../components/home/Feed'
 import Head from 'next/head'
 import Image from 'next/image'
 
@@ -12,7 +13,7 @@ const Home = () => {
     <div className={style.wrapper}>
       <div className={style.content}>
         <Sidebar/>
-        <h2>Feed</h2>
+        <Feed/>
         <h2>Widgets</h2>
       </div>
     </div>

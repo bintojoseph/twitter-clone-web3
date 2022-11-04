@@ -1,6 +1,59 @@
 import {useEffect,useState} from 'react'
 import { BsStars } from 'react-icons/bs'
 import TweetBox from './TweetBox'
+import Post from '../Post'
+
+
+const tweets =[
+    {
+        DisplayName:"binto",
+        UserName:"0xcvdb245nas678hihifj576jsbskjd7",
+        avatar:"https://avatars.githubusercontent.com/u/70394879?v=4",
+        text:"Hola",
+        IsProfileImageNft:false,
+        timestamp:'2022-11-05T01:28:00.000Z'
+    },
+    {
+        DisplayName:"binto",
+        UserName:"0xcvdb245nas678hihifj576jsbskjd7",
+        avatar:"https://avatars.githubusercontent.com/u/70394879?v=4",
+        text:"Hola",
+        IsProfileImageNft:false,
+        timestamp:'2022-11-05T01:28:00.000Z'
+    },
+    {
+        DisplayName:"binto",
+        UserName:"0xcvdb245nas678hihifj576jsbskjd7",
+        avatar:"https://avatars.githubusercontent.com/u/70394879?v=4",
+        text:"Hola",
+        IsProfileImageNft:false,
+        timestamp:'2022-11-05T01:28:00.000Z'
+    },
+    {
+        DisplayName:"binto",
+        UserName:"0xcvdb245nas678hihifj576jsbskjd7",
+        avatar:"https://avatars.githubusercontent.com/u/70394879?v=4",
+        text:"Hola",
+        IsProfileImageNft:false,
+        timestamp:'2022-11-05T01:28:00.000Z'
+    },
+    {
+        DisplayName:"binto",
+        UserName:"0xcvdb245nas678hihifj576jsbskjd7",
+        avatar:"https://avatars.githubusercontent.com/u/70394879?v=4",
+        text:"Hola",
+        IsProfileImageNft:false,
+        timestamp:'2022-11-05T01:28:00.000Z'
+    },
+    {
+        DisplayName:"binto",
+        UserName:"0xcvdb245nas678hihifj576jsbskjd7",
+        avatar:"https://avatars.githubusercontent.com/u/70394879?v=4",
+        text:"Hola",
+        IsProfileImageNft:false,
+        timestamp:'2022-11-05T01:28:00.000Z'
+    },
+]
 
 const style = {
     wrapper: `flex-[2] border-r border-l border-[#38444d] overflow-y-scroll`,
@@ -18,6 +71,17 @@ return (
             <BsStars/>
         </div>
         <TweetBox/>
+        {tweets.map((tweet,index) => (
+            <Post
+                key={index}
+                DisplayName={tweet.DisplayName}
+                UserName={tweet.UserName}
+                avatar={tweet.avatar}
+                text={tweet.text}
+                IsProfileImageNft={tweet.IsProfileImageNft}
+                timestamp={tweet.timestamp}
+            />
+        ))}
     </div>
 )
 }

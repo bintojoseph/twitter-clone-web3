@@ -1,5 +1,6 @@
 import Sidebar from '../components/Sidebar'
 import Feed from '../components/home/Feed'
+import Widgets from '../components/Widgets'
 import Head from 'next/head'
 import Image from 'next/image'
 
@@ -14,7 +15,7 @@ const Home = () => {
       <div className={style.content}>
         <Sidebar/>
         <Feed/>
-        <h2>Widgets</h2>
+        <Widgets/>
       </div>
     </div>
   )

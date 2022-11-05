@@ -75,7 +75,7 @@ return (
             <Post
                 key={index}
                 DisplayName={tweet.DisplayName}
-                UserName={tweet.UserName}
+                UserName={`${tweet.UserName.slice(0,4)}...${tweet.UserName.slice(-4)}`}
                 avatar={tweet.avatar}
                 text={tweet.text}
                 IsProfileImageNft={tweet.IsProfileImageNft}

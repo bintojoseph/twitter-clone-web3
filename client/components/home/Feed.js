@@ -11,7 +11,7 @@ const tweets =[
         avatar:"https://avatars.githubusercontent.com/u/70394879?v=4",
         text:"Hola",
         IsProfileImageNft:false,
-        timestamp:'2022-11-05T01:28:00.000Z'
+        timestamp:'2021-11-05T01:28:00.000Z'
     },
     {
         DisplayName:"binto",

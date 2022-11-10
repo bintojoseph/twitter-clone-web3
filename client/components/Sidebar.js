@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import {FiMoreHorizontal,FiBell} from 'react-icons/fi'
 import {VscTwitter} from 'react-icons/vsc'
 import {useState} from 'react'
@@ -75,9 +76,9 @@ function Sidebar({initialSelectedIcon = 'Home'}) {
                 redirect = {'/'}
                 />
                 <SidebarOption
-                Icon={selected === 'Person' ? BsPersonFill : BsPerson}
-                text = "Person"
-                isActive={Boolean(selected === "Person")}
+                Icon={selected === 'Profile' ? BsPersonFill : BsPerson}
+                text = "Profile"
+                isActive={Boolean(selected === "Profile")}
                 setSelected = {setSelected}
                 redirect = {'/profile'}
                 />

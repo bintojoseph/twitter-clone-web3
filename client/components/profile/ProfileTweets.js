@@ -1,8 +1,11 @@
-import {useEffect,useState} from 'react'
-import { BsStars } from 'react-icons/bs'
-import TweetBox from './TweetBox'
+import {useEffect,useContext,useState} from 'react'
 import Post from '../Post'
 
+const style = {
+    wrapper: `no-scrollbar`,
+    header: `sticky top-0 bg-[#15202b] z-10 p-4 flex justify-between items-center`,
+    headerTitle: `text-xl font-bold`,
+}
 
 const tweets =[
     {
@@ -55,35 +58,24 @@ const tweets =[
     },
 ]
 
-const style = {
-    wrapper: `flex-[2] border-r border-l border-[#38444d] overflow-y-scroll scrollbar-hide`,
-    header: `sticky top-0 bg-[#15202b] z-10 p-4 flex justify-between items-center`,
-    headerTitle: `text-xl font-bold`,
-}
-
-function Feed() {
+const ProfileTweets = () => {
 return (
     <div className={style.wrapper}>
-        <div className={style.header}>
-            <div className={style.headerTitle}>
-                Feed
-            </div>
-            <BsStars/>
-        </div>
-        <TweetBox/>
-        {tweets.map((tweet,index) => (
-            <Post
-                key={index}
-                DisplayName={tweet.DisplayName}
-                UserName={`${tweet.UserName.slice(0,4)}...${tweet.UserName.slice(-4)}`}
-                avatar={tweet.avatar}
-                text={tweet.text}
-                IsProfileImageNft={tweet.IsProfileImageNft}
-                timestamp={tweet.timestamp}
-            />
-        ))}
+        {
+            tweets?.map((tweet,index) => (
+                <Post
+                    key={index}
+                    DisplayName='binto'
+                    UserName={`${tweet.UserName.slice(0,4)}...${tweet.UserName.slice(-4)}`}
+                    avatar={tweet.avatar}
+                    text={tweet.text}
+                    IsProfileImageNft={tweet.IsProfileImageNft}
+                    timestamp={tweet.timestamp}
+                />
+            ))
+        }
     </div>
 )
 }
 
-export default Feed
+export default ProfileTweets

@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
 import { BsArrowLeftShort } from 'react-icons/bs'
 import{ useRouter } from 'next/router'
+import {TwitterContext} from '../../context/TwitterContext'
 //import Modal from 'react-modal'
 
 
@@ -24,7 +25,7 @@ const style = {
 const ProfileHeader = () => {
     const router = useRouter()
     const isProfileImageNft = false
-    const currentAccount = '0xcvdb245nas678hihifj576jsbskjd7'
+    const {currentAccount,currentUser} = useContext(TwitterContext)
 return (
     <div className={style.wrapper}>
         <div className={style.header}>
@@ -32,13 +33,13 @@ return (
                 <BsArrowLeftShort/>
             </div>
             <div className={style.details}>
-                <div className={style.primary}>Bint0 Joseph</div>
-                <div className={style.secondary}>Tweets</div>
+                <div className={style.primary}>{currentUser.name}</div>
+                <div className={style.secondary}>{currentUser.tweets?.length}{' '}{currentUser.tweets?.length === 1 ? 'Tweet' : 'Tweets'} </div>
             </div>
         </div>
         <div className={style.coverPhotoContainer}>
             <img 
-            src="https://f8n-production.s3.amazonaws.com/creators/profile/220pdh08q-6-headerfnd-png-6csl1j.png" 
+            src={currentUser.coverImage} 
             alt="error"
             className={style.coverPhoto} 
             />
@@ -46,7 +47,7 @@ return (
         <div className={style.profileImageContainer}>
             <div className={isProfileImageNft ? 'hex' : style.profileImageContainer}>
                 <img 
-                src="https://avatars.githubusercontent.com/u/70394879?v=4" 
+                src={currentUser.profileImage} 
                 alt="error" 
                 className={
                     isProfileImageNft
@@ -58,7 +59,7 @@ return (
         </div>
         <div className={style.details}>
             <div>
-                <div className={style.primary}>Binto Joseph</div>
+                <div className={style.primary}>{currentUser.name}</div>
             </div>
             <div className={style.secondary}>
             {currentAccount && (

@@ -1,4 +1,5 @@
 import {useEffect,useContext,useState} from 'react'
+import {TwitterContext} from '../../context/TwitterContext'
 import Post from '../Post'
 
 const style = {
@@ -7,68 +8,27 @@ const style = {
     headerTitle: `text-xl font-bold`,
 }
 
-const tweets =[
-    {
-        DisplayName:"binto",
-        UserName:"0xcvdb245nas678hihifj576jsbskjd7",
-        avatar:"https://avatars.githubusercontent.com/u/70394879?v=4",
-        text:"Hola",
-        IsProfileImageNft:false,
-        timestamp:'2021-11-05T01:28:00.000Z'
-    },
-    {
-        DisplayName:"binto",
-        UserName:"0xcvdb245nas678hihifj576jsbskjd7",
-        avatar:"https://avatars.githubusercontent.com/u/70394879?v=4",
-        text:"Hola",
-        IsProfileImageNft:false,
-        timestamp:'2022-11-05T01:28:00.000Z'
-    },
-    {
-        DisplayName:"binto",
-        UserName:"0xcvdb245nas678hihifj576jsbskjd7",
-        avatar:"https://avatars.githubusercontent.com/u/70394879?v=4",
-        text:"Hola",
-        IsProfileImageNft:false,
-        timestamp:'2022-11-05T01:28:00.000Z'
-    },
-    {
-        DisplayName:"binto",
-        UserName:"0xcvdb245nas678hihifj576jsbskjd7",
-        avatar:"https://avatars.githubusercontent.com/u/70394879?v=4",
-        text:"Hola",
-        IsProfileImageNft:false,
-        timestamp:'2022-11-05T01:28:00.000Z'
-    },
-    {
-        DisplayName:"binto",
-        UserName:"0xcvdb245nas678hihifj576jsbskjd7",
-        avatar:"https://avatars.githubusercontent.com/u/70394879?v=4",
-        text:"Hola",
-        IsProfileImageNft:false,
-        timestamp:'2022-11-05T01:28:00.000Z'
-    },
-    {
-        DisplayName:"binto",
-        UserName:"0xcvdb245nas678hihifj576jsbskjd7",
-        avatar:"https://avatars.githubusercontent.com/u/70394879?v=4",
-        text:"Hola",
-        IsProfileImageNft:false,
-        timestamp:'2022-11-05T01:28:00.000Z'
-    },
-]
+
 
 const ProfileTweets = () => {
+    const {currentAccount,currentUser} = useContext(TwitterContext)
 return (
     <div className={style.wrapper}>
         {
-            tweets?.map((tweet,index) => (
+            currentUser.tweets?.map((tweet,index) => (
                 <Post
                     key={index}
-                    DisplayName='binto'
-                    UserName={`${tweet.UserName.slice(0,4)}...${tweet.UserName.slice(-4)}`}
-                    avatar={tweet.avatar}
-                    text={tweet.text}
+                    DisplayName={
+                        currentUser.name === 'Unnamed'
+                        ? `${currentAccount.slice(
+                        0,
+                        4,
+                        )}...${currentAccount.slice(41)}`
+                        : currentUser.name
+                    }
+                    UserName={`${currentAccount.slice(0,4)}...${currentAccount.slice(-4)}`}
+                    avatar={currentUser.profileImage}
+                    text={tweet.tweet}
                     IsProfileImageNft={tweet.IsProfileImageNft}
                     timestamp={tweet.timestamp}
                 />

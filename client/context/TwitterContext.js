@@ -15,6 +15,13 @@ export const TwitterProvider = ({ children }) => {
     checkIfWalletIsConnected();
   }, []);
 
+  useEffect(() => {
+    if(!currentAccount || appStatus!== 'connected') return
+    getCurrentUserDetails()
+    fetchTweets()
+  }, [currentAccount,appStatus])
+  
+
   const checkIfWalletIsConnected = async () => {
     if (!window.ethereum) return setAppStatus("noMetaMask");
     try {
@@ -100,7 +107,7 @@ export const TwitterProvider = ({ children }) => {
                 author: {
                     name: item.author.name,
                     walletAddress: item.author.walletAddress,
-                    profileImage: profileImageUrl,
+                    profileImage: item.author.profileImage,
                     isProfileImageNft: item.author.isProfileImageNft,
                 },
             }
